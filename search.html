@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | Netflix Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .search-header {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
+        }
+        .search-result-card:hover {
+            transform: scale(1.03);
+            transition: transform 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-[#141414] text-white">
+    <!-- Header -->
+    <header class="search-header fixed top-0 w-full z-50 p-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="h-8">
+            <nav class="ml-8 hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+                    <li><a href="#" class="hover:text-gray-300">TV Shows</a></li>
+                    <li><a href="#" class="hover:text-gray-300">Movies</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="login.html" class="signin-btn bg-red-600 hover:bg-red-700 px-4 py-1 rounded"></a>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <main class="pt-24 pb-12 container mx-auto px-4">
+        <div class="relative mb-8">
+            <input type="text" 
+                   class="search-input w-full bg-gray-800 p-4 text-xl rounded" 
+                   placeholder="Search for movies, TV shows...">
+            <i class="fas fa-search absolute right-4 top-5 text-gray-400"></i>
+        </div>
+
+        <!-- Search Results -->
+        <div class="search-results">
+            <h2 class="text-2xl font-bold mb-6">Search Results</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Handle search query from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q');
+        
+        if (query) {
+            document.querySelector('.search-input').value = query;
+            // In a real app, this would call an API
+            const mockResults = [
+                {
+                    title: query + " (2023)",
+                    image: "https://images.pexels.com/photos/3945317/pexels-photo-3945317.jpeg",
+                    type: "Movie",
+                    match: "92%"
+                },
+                {
+                    title: "The " + query,
+                    image: "https://images.pexels.com/photos/3062545/pexels-photo-3062545.jpeg",
+                    type: "TV Show",
+                    match: "87%"
+                }
+            ];
+
+            const resultsContainer = document.querySelector('.search-results .grid');
+            mockResults.forEach(result => {
+                const card = document.createElement('div');
+                card.className = 'search-result-card bg-gray-800 rounded overflow-hidden cursor-pointer';
+                card.innerHTML = `
+                    <img src="${result.image}" alt="${result.title}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold">${result.title}</h3>
+                        <div class="flex justify-between mt-2 text-gray-400">
+                            <span>${result.type}</span>
+                            <span class="text-green-500">${result.match} Match</span>
+                        </div>
+                    </div>
+                `;
+                resultsContainer.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
