@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details | Netflix Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .movie-backdrop {
+            height: 75vh;
+        }
+        .movie-info {
+            margin-top: -150px;
+        }
+    </style>
+</head>
+<body class="bg-[#141414] text-white">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-gradient-to-b from-black to-transparent p-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="h-8">
+            <nav class="ml-8 hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+                    <li><a href="#" class="hover:text-gray-300">TV Shows</a></li>
+                    <li><a href="#" class="hover:text-gray-300">Movies</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="login.html" class="bg-red-600 hover:bg-red-700 px-4 py-1 rounded">Sign In</a>
+        </div>
+    </header>
+
+    <!-- Movie Backdrop -->
+    <div class="movie-backdrop relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#141414] to-transparent z-10"></div>
+        <img src="https://images.pexels.com/photos/3062545/pexels-photo-3062545.jpeg" alt="Movie Backdrop" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Movie Info -->
+    <div class="movie-info relative z-20 container mx-auto px-4">
+        <div class="flex flex-col md:flex-row">
+            <div class="md:w-2/3">
+                <h1 class="text-4xl font-bold mb-4">The Witcher</h1>
+                <div class="flex items-center space-x-4 mb-6">
+                    <span class="text-green-500 font-bold">97% Match</span>
+                    <span>2019</span>
+                    <span class="border border-gray-400 px-1">TV-MA</span>
+                    <span>3 Seasons</span>
+                </div>
+                <div class="flex space-x-4 mb-8">
+                    <button class="bg-white text-black px-6 py-2 rounded flex items-center">
+                        <i class="fas fa-play mr-2"></i> Play
+                    </button>
+                    <button class="bg-gray-600 bg-opacity-70 px-6 py-2 rounded flex items-center">
+                        <i class="fas fa-plus mr-2"></i> My List
+                    </button>
+                </div>
+                <p class="text-lg mb-8">Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.</p>
+                <div class="mb-8">
+                    <p><span class="text-gray-400">Cast:</span> Henry Cavill, Anya Chalotra, Freya Allan</p>
+                    <p><span class="text-gray-400">Genres:</span> Fantasy TV Shows, TV Action & Adventure</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- More Like This -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold mb-6">More Like This</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="movie-card">
+                    <img src="https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg" alt="Movie" class="rounded w-full h-auto">
+                </div>
+                <div class="movie-card">
+                    <img src="https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg" alt="Movie" class="rounded w-full h-auto">
+                </div>
+                <div class="movie-card">
+                    <img src="https://images.pexels.com/photos/3945317/pexels-photo-3945317.jpeg" alt="Movie" class="rounded w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
